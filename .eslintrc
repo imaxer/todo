@@ -1,0 +1,16 @@
+extends:
+  - react-app
+  - prettier
+  - prettier/react
+  - plugin:react/recommended
+  - plugin:compat/recommended
+
+plugins:
+    - prettier
+
+settings:
+  polyfills: ['promises']
+
+rules:
+  indent: [ "error", 2 ]
+  prettier/prettier: ["warn", {"trailingComma": "none", "singleQuote": true, "printWidth": 120, "tabWidth": 2 }]
