@@ -1,13 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import { Provider } from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { configureStore } from './store/store';
 
 const rootEl = document.getElementById('root');
 
+const store = configureStore();
+
 const render = Component => {
-  ReactDOM.render(<Component/>, rootEl);
+  ReactDOM.render(
+    <Provider store={store}>
+      <Component />
+    </Provider>,
+    rootEl
+  );
 };
 
 render(App);
@@ -17,10 +25,9 @@ render(App);
 // Learn more about service workers: http://bit.ly/CRA-PWA
 serviceWorker.register();
 
-if (module.hot){
+if (module.hot) {
   module.hot.accept('./App', async () => {
     const { default: Next } = await import('./App');
     render(Next);
-  })
+  });
 }
-

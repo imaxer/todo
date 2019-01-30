@@ -25,13 +25,13 @@ const validate = values => {
   return errors;
 };
 
-const TaskEditDialog = ({ task, close, commit }: TaskEditDialogProps): React.ReactNode => (
+const TaskEditDialog = ({ task, close, commit }: TaskEditDialogProps) => (
   <Dialog open={!!task} onClose={close}>
     <Formik
       initialValues={task}
       validate={validate}
       onSubmit={values => {
-        commit({ ...values, date: new Date() });
+        commit({ ...values, date: new Date().toISOString(), completed: false });
         close();
       }}
     >

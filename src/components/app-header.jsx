@@ -23,12 +23,12 @@ const styles = theme => ({
   }
 });
 
-const AppHeader = ({ onAddButtonClick, classes }: AppHeaderProps): React.ReactNode => {
+const AppHeader = ({ onAddButtonClick, classes }: AppHeaderProps) => {
   return (
     <AppBar position="sticky">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h4" color="inherit">
-          ToDo Application
+          ToDo
         </Typography>
         <div className={classes.spacer} />
         <Button variant="contained" onClick={onAddButtonClick}>
